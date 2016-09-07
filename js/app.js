@@ -110,6 +110,19 @@ Player.prototype.handleInput = function(e) {
 /** Produces 1 player per game **/
 var player = new Player();
 
+/** Enemy array **/
+var allEnemies = [];
+
+//Produces # of enemies based on push/new 
+(function addEnemies () {
+
+
+  allEnemies.push(new Enemy(-2, 60));
+  allEnemies.push(new Enemy(-3, 100));
+  allEnemies.push(new Enemy(-2, 150));
+  allEnemies.push(new Enemy(-7, 220));
+  allEnemies.push(new Enemy(-2, 300));
+}());
 
 
 // This listens for key presses and sends the keys to your
