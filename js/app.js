@@ -1,4 +1,18 @@
-// Enemies our player must avoid
+/*
+Sprite starting spot, and image sprite used.
+ */
+var Player = function() {
+  // What sprite to use
+  this.sprite = 'images/char-cat-girl.png';
+  // Initial x location
+  this.x = 100;
+  // Initial y location
+  this.y = 400;
+};
+
+/*
+All enemy variables used.
+ */
 var Enemy = function() {
 
     this.sprite = 'images/enemy-bug.png';
@@ -36,14 +50,65 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+//Resets player to x,y coordinates
+Player.prototype.reset = function(message) {
+  this.x = 100;
+  this.y = 400;
+
+  var div = document.createElement('div');
+
+  div.id = 'message';
+  div.innerHTML = '<h2>' + message + '</h2>';
+
+  document.body.appendChild(div);
+
+  setTimeout(function() {
+    document.body.removeChild(div);
+  }, 1000);
+};
+
+//renders player sprite
+Player.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+//This will determine location of player sprite/up, down, left right movement
+Player.prototype.update = function() {
+  
+  if(this.ctlKey === 'left' && this.x > 0){
+    this.x = this.x - 100;
+    
+  } else if(this.ctlKey === 'right' && this.x != 900){
+    this.x = this.x + 100;
+    
+  } else if(this.ctlKey === 'up'){
+    this.y = this.y - 85;
+    
+  } else if (this.ctlKey === 'down' && this.y != 500){
+    this.y = this.y + 85;
+  }
+  this.ctlKey = null;
+
+  //Landing on other side gets congratulations!
+  if(this.y < 25){
+
+    this.reset('Very Nice!');
+  }
+};
+
+
+//player input
+Player.prototype.handleInput = function(e) {
+  this.ctlKey = e;
+};
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+
+/** Produces 1 player per game **/
+var player = new Player();
 
 
 
