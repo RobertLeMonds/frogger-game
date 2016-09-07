@@ -13,11 +13,11 @@ var Player = function() {
 /*
 All enemy variables used.
  */
-var Enemy = function() {
+var Enemy = function(x, y) {
+  // Variables applied to each of our instances go here,
+  // we've provided one for you to get started
 
-    this.sprite = 'images/enemy-bug.png';
-
-      //Enemy sprite used
+  //Enemy sprite used
   this.sprite = 'images/enemy-bug.png';
 
   this.x = x;
@@ -47,8 +47,9 @@ Enemy.prototype.update = function(dt) {
 
 //renders enemy sprite
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 //Resets player to x,y coordinates
 Player.prototype.reset = function(message) {
@@ -125,15 +126,14 @@ var allEnemies = [];
 }());
 
 
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+//This is for the arrow movement keys.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
-        37: 'left',
-        38: 'up',
-        39: 'right',
-        40: 'down'
-    };
+  var allowedKeys = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down'
+  };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+  player.handleInput(allowedKeys[e.keyCode]);
 });
