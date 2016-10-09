@@ -5,7 +5,7 @@ var Player = function() {
   // What sprite to use
   this.sprite = 'images/char-cat-girl.png';
   // Initial x location
-  this.x = 100;
+  this.x = 500;
   // Initial y location
   this.y = 400;
 };
@@ -37,8 +37,8 @@ Enemy.prototype.update = function(dt) {
     this.x = -5;
   }
 
-  if (player.x >= this.x - 30
-    && player.x <= this.x + 30
+  if (player.x >= this.x - 25
+    && player.x <= this.x + 25
     && player.y >= this.y - 30
     && player.y <= this.y + 30) {
       player.reset('Try Again');
@@ -53,13 +53,13 @@ Enemy.prototype.render = function() {
 
 //Resets player to x,y coordinates
 Player.prototype.reset = function(message) {
-  this.x = 100;
+  this.x = 500;
   this.y = 400;
 
   var div = document.createElement('div');
 
   div.id = 'message';
-  div.innerHTML = '<h2>' + message + '</h2>';
+  div.innerHTML = '<h1>' + message + '</h1>';
 
   document.body.appendChild(div);
 
@@ -85,7 +85,7 @@ Player.prototype.update = function() {
   } else if(this.ctlKey === 'up'){
     this.y = this.y - 85;
     
-  } else if (this.ctlKey === 'down' && this.y != 500){
+  } else if (this.ctlKey === 'down' && this.y != 650){
     this.y = this.y + 85;
   }
   this.ctlKey = null;

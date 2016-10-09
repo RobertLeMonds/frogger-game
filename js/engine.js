@@ -14,6 +14,8 @@
  * a little simpler to work with.
  */
 
+
+
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -26,7 +28,7 @@ var Engine = (function(global) {
         lastTime;
 
     canvas.width = 1010;
-    canvas.height = 768;
+    canvas.height = 650;
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
