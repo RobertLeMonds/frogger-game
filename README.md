@@ -2,7 +2,7 @@
 ===============================
 
 ## Running the Game
-1. The easiest method to run the game is by going to https://robertlemonds.github.io/frogger-game/gamepage.html
+1. The easiest method to run the game is by going to https://robertlemonds.github.io/frogger-game/
 2. If you want you can also git clone and download the zip. Unzip the files and double click index.html in the frogger-game file to run the website locally.
 
 ## Rules
