@@ -13,7 +13,7 @@ canvas {
 }
 
 .bg {
-  background-image:url("../images/bg");
+  background-image:url(../images/bg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;

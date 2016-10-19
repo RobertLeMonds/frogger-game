@@ -2,6 +2,8 @@
 Sprite starting spot, and image sprite used.
  */
 var Player = function() {
+  'use strict';
+
   // What sprite to use
   this.sprite = 'images/char-cat-girl.png';
   // Initial x location
@@ -75,17 +77,17 @@ Player.prototype.render = function() {
 
 //This will determine location of player sprite/up, down, left right movement
 Player.prototype.update = function() {
-  
+  'use strict';
   if(this.ctlKey === 'left' && this.x > 0){
     this.x = this.x - 100;
     
-  } else if(this.ctlKey === 'right' && this.x != 900){
+  } else if(this.ctlKey === 'right' && this.x < 900){
     this.x = this.x + 100;
     
   } else if(this.ctlKey === 'up'){
     this.y = this.y - 85;
     
-  } else if (this.ctlKey === 'down' && this.y != 650){
+  } else if (this.ctlKey === 'down' && this.y < 480){
     this.y = this.y + 85;
   }
   this.ctlKey = null;
